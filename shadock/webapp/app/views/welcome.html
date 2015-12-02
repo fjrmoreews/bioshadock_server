@@ -1,0 +1,66 @@
+<div class="well text-center">
+                                <a href="#/all/containers">
+                                 <button class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-list"></i>
+                                    View all containers
+                                 </button>
+                                </a>
+</div>
+<div class="row">
+    <p>BioShadock is a Docker registry for BioInformatics. Here are hosted Docker images dedicated to a broad spectrum of Biological communities as represented by the Biogenouest Western France network.</p>
+    <p>In particular, you will find here:
+        <ul>
+          <li>Command line tools</li>
+          <li>Complex web server frameworks</li>
+          <li>Galaxy Docker images that you can use with specific Docker Galaxy tools thanks to recent developments through the <a href="https://cesgo.genouest.org/">e-Biogenouest</a> project (see our <a href="http://toolshed.genouest.org">Toolshed</a>)</li>
+       </ul>
+    </p>
+   <p>The number of images available will grow following the community needs.</p>
+   <p>The Docker Genouest code facility team: François Moreews, Yvan Le Bras, Olivier Sallou</p>
+   <p>Past contributors: Cyril Monjeaud</p>
+
+
+    <p>To create or push an image, you must have a <a href="http://www.genouest.org">GenOuest</a> account.</p>
+    <p>Once logged, you can create containers with a Dockerfile or push your images in your repository, and set it public or private.</p>
+    <div class="alert alert-info">If you face SSL certificate issues, you must download the root certificate https://www.gandi.net/static/CAs/GandiStandardSSLCA2.pem and add it to your local certificates.
+       <pre>
+Copy file in /etc/docker/certs.d/{{service}} and /etc/docker/certs.d/{{issuer}} with name ca.crt and restart docker
+       </pre>
+If you are using Docker Toolbox (Windows or Mac), do the following
+       <pre>
+docker-machine ssh default
+sudo vi /etc/init.d/docker
+
+#In the edited file, update the following
+test -f '/var/lib/boot2docker/profile' && . '/var/lib/boot2docker/profile'
+#ADD THIS LINE
+EXTRA_ARGS="--insecure-registry docker-registry.genouest.org"
+
+Then restart Docker service
+
+sudo /etc/init.d/docker restart
+       </pre>
+
+    </div>
+</div>
+<div class="row">
+    <h3>How to push to the repository</h3>
+
+    <pre>
+        docker login {{service}}
+        docker tag XYZ {{service}}/X/Y/Z
+        docker push {{service}}/X/Y/Z
+    </pre>
+</div>
+
+<div id="logo">
+        <a href="http://www.biogenouest.org" title="Biogenouest"><img src="img/logo_biogenouest.jpg" alt="Biogenouest" height="57" width="75"></a>
+        <a href="http://www.irisa.fr" title="IRISA"><img src="img/logo_irisa.jpg" alt="IRISA" height="18" width="139"></a>
+        <a href="http://www.inria.fr/" title="INRIA"><img src="img/logo_inria.jpg" alt="INRIA" height="39" width="109"></a>
+        <a href="http://www.cnrs.fr/" title="CNRS"><img src="img/logo_cnrs.jpg" alt="CNRS" height="56" width="56"></a>
+        <a href="http://www.univ-rennes1.fr/" title="Rennes 1 University"><img src="img/logo_univrennes1.jpg" alt="Rennes 1 University" height="52" width="128"></a>
+        <a href="http://www.region-bretagne.fr/" title="Region Bretagne"><img src="img/logo_region_bretagne.gif" alt="Region Bretagne" height="58" width="57"></a>
+        <a href="http://www.france-bioinformatique.fr/" title="IFB"><img src="img/ifb-logo.png" alt="IFB" height="50" width="120"></a>
+        <br>
+</div>
+

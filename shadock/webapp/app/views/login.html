@@ -1,0 +1,34 @@
+
+<div class="loginform">
+	<div class="row" ng-if="msg">
+		<div class="alert alert-warning" role="alert">{{msg}}</div>
+	</div>
+	<div class="row login_box">
+	    <div class="col-md-12 col-xs-12" align="center">
+            <div class="outter"><img src="img/container.jpg" class="image-circle"/></div>
+            <h1>Bioshadock</h1>
+	    </div>
+
+        <div class="col-md-12 col-xs-12 login_control">
+                <div class="control">
+                    <div class="label">User identifier</div>
+                    <input type="text" class="form-control" ng-model="uid" placeholder="user identifier"/>
+                </div>
+
+                <div class="control">
+                     <div class="label">Password</div>
+                    <input type="password" class="form-control" ng-model="password"/>
+                </div>
+                <div align="center">
+                     <button class="btn btn-orange" ng-click="authenticate()">LOGIN</button>
+                </div>
+
+        </div>
+        <div class="col-md-12 col-xs-12 login_control">
+            <h3>Connect with one of your identity providers</h3>
+                   <a href="/login/google" class="btn btn-block btn-social btn-google"><span class="fa fa-google-plus"></span> Google</a>
+                   <a href="/login/github" class="btn btn-block btn-social btn-github"><span class="fa fa-github"></span> GitHub</a>
+        </div>
+
+    </div>
+</div>
